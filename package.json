@@ -1,18 +1,21 @@
 {
-  "name": "ridebooking",
-  "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "author": "saurabh_shelot",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.1",
-    "mysql2": "^2.3.0",
-    "nodemon": "^2.0.12",
-    "sequelize": "^6.6.5"
-  }
+    "name": "ridebooking",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon --config nodemon.json server/server.js"
+    },
+    "author": "saurabh_shelot",
+    "license": "ISC",
+    "dependencies": {
+        "@hapi/joi": "^17.1.1",
+        "express": "^4.17.1",
+        "jsonwebtoken": "^8.5.1",
+        "moment": "^2.29.1",
+        "mysql2": "^2.3.0",
+        "nodemon": "^2.0.12",
+        "sequelize": "^6.6.5"
+    }
 }
