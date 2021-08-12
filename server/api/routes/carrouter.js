@@ -8,5 +8,6 @@ const carrouter = express.Router();
 
 carrouter.post('/', authuser(), validator(schema.addcar), carmaster.addcar);
 carrouter.get('/nearby', authuser(), validator(schema.nearbycabs), carmaster.getnearbycars);
-
+carrouter.post('/book', authuser(), validator(schema.bookcab), carmaster.bookcar);
+carrouter.put('/updateride', authuser(), validator(schema.updateridedetails), carmaster.updateridedetails);
 module.exports = carrouter;

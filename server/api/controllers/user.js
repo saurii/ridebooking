@@ -107,6 +107,50 @@ function isEmailAddressExist(emailaddress) {
     })
 }
 
+exports.getridedetails = asyncHandler(async(req, res, next) => {
+    let apiExecutionStarttime = moment(new Date()).format('YYYY-MM-DD HH:mm:ss');
+    return db.ridehistory
+        .findAndCountAll({
+            attributes: ['pickup_longitude', 'pickup_latitude', 'drop_longitude', 'drop_latitude', 'rideamount', 'status', 'isactive', 'createddate'],
+            where: {
+                usermasterid: Number(req.query.usermasterid)
+            },
+            offset: (Number(req.query.page) - 1) * Number(req.query.pagesize),
+            limit: Number(req.query.pagesize),
+            include: [{
+                attributes: ['carno'],
+                model: db.carmaster
+            }],
+            subQuery: false,
+            order: [
+                ['createddate', 'DESC']
+            ],
+            raw: true
+        }).then((resGetRides) => {
+            if (resGetRides && resGetRides.rows.length) {
+                let arr = [];
+                resGetRides.rows.forEach(element => {
+                    arr.push({
+                        pickup_longitude: element.pickup_longitude,
+                        pickup_latitude: element.pickup_latitude,
+                        drop_longitude: element.drop_latitude,
+                        rideamount: element.rideamount,
+                        status: element.status,
+                        isactive: Boolean(element.isactive),
+                        createddate: element.createddate,
+                        carno: element['carmaster.carno'] ? element['carmaster.carno'] : null
+                    })
+                })
+                return sendResponse(resGetRides.count, apiExecutionStarttime, req, res, arr, [], '404', true);
+            } else {
+                return sendResponse(0, apiExecutionStarttime, req, res, [], [], '405', false);
+            }
+        }).catch((err) => {
+            insertLogsData(req, apiExecutionStarttime, err, req.originalUrl.split('/api/v1')[1], false);
+            return sendResponse(0, apiExecutionStarttime, req, res, [], [], '1015', false);
+        })
+})
+
 function insertLogsData(req, apiExecutionStarttime, err, file, status) {
     return errorlog(req, apiExecutionStarttime, err, 'error', file, status);
 }

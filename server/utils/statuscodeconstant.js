@@ -19,6 +19,12 @@ class Statuscodes {
         '412': { code: '412', message: 'invalid api parameters', ispopup: true },
         '413': { code: '413', message: 'you have already added a one car', ispopup: true },
         '414': { code: '414', message: 'car added successfully', ispopup: true },
+        '415': { code: '415', message: 'no nearby cabs available, try again', ispopup: true },
+        '416': { code: '416', message: 'your cab is booked', ispopup: true },
+        '417': { code: '417', message: 'you cannnot booked multiple cab at same time for same user', ispopup: true },
+        '418': { code: '418', message: 'ride is not booked or start', ispopup: true },
+        '419': { code: '419', message: 'your ride is #key1#', ispopup: true },
+        '420': { code: '420', message: '#key1#', ispopup: true },
         '1015': { code: '1015', message: 'an error occured, please contact to system administrator', ispopup: true }
     }
 

@@ -2,7 +2,7 @@
 module.exports = function(sequelize, DataTypes) {
     const rolemaster = sequelize.define('rolemaster', {
         roleid: { type: DataTypes.BIGINT, primaryKey: true, autoIncrement: true, allowNull: false },
-        rolename: { type: DataTypes.STRING, allowNull: false },
+        rolename: { type: DataTypes.STRING, allowNull: false, unique: true },
         createdby: { type: DataTypes.STRING, allowNull: false },
         createddate: { type: DataTypes.DATE, allowNull: false },
         lastmodifiedby: { type: DataTypes.STRING, allowNull: true },

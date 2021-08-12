@@ -8,6 +8,7 @@ module.exports = function(sequelize, DataTypes) {
         drop_longitude: { type: DataTypes.STRING, allowNull: false },
         drop_latitude: { type: DataTypes.STRING, allowNull: false },
         rideamount: { type: DataTypes.BIGINT, allowNull: false },
+        bookingotp: { type: DataTypes.STRING, allowNull: false, unique: true },
         status: { type: DataTypes.STRING, allowNull: false },
         usermasterid: { type: DataTypes.BIGINT, allowNull: false },
         createdby: { type: DataTypes.STRING, allowNull: false },

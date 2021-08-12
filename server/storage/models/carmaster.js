@@ -2,7 +2,7 @@
 module.exports = function(sequelize, DataTypes) {
     const carmaster = sequelize.define('carmaster', {
         carmasterid: { type: DataTypes.BIGINT, primaryKey: true, autoIncrement: true, allowNull: false },
-        carno: { type: DataTypes.STRING, allowNull: false },
+        carno: { type: DataTypes.STRING, allowNull: false, unique: true },
         longitude: { type: DataTypes.STRING, allowNull: false },
         latitude: { type: DataTypes.STRING, allowNull: false },
         usermasterid: { type: DataTypes.BIGINT, allowNull: false },
