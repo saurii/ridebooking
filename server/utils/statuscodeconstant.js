@@ -17,6 +17,8 @@ class Statuscodes {
         '410': { code: '410', message: 'you have no longer access to this api', ispopup: true },
         '411': { code: '411', message: '#key1# delete successfully', ispopup: true },
         '412': { code: '412', message: 'invalid api parameters', ispopup: true },
+        '413': { code: '413', message: 'you have already added a one car', ispopup: true },
+        '414': { code: '414', message: 'car added successfully', ispopup: true },
         '1015': { code: '1015', message: 'an error occured, please contact to system administrator', ispopup: true }
     }
 

@@ -8,7 +8,17 @@ const config = {
                 username: 'root',
                 password: 'password',
                 database: 'admin_cab',
-                dbport: 3306
+                dialect: "mysql",
+                collate: "utf8_general_ci",
+                pool: {
+                    max: 10,
+                    min: 0,
+                    idle: 10000,
+                    evict: 1000,
+                    acquire: 30000,
+                    handleDisconnects: true
+                },
+                retry: true
             }
         },
         server: {
@@ -23,9 +33,9 @@ const config = {
             randomkeylength: 3,
             secretuserrandomstringlength: 2,
             tokenrandomcharlength: 3,
-            projectsecretkey: '#36ad3vsys$%',
+            projectsecretkey: '#128ridevsys$%',
             apiendpoint: '/api/v1/'
-        },
+        }
     },
     test: {},
     producttion: {
@@ -35,7 +45,8 @@ const config = {
                 username: process.env.USERNAME,
                 password: process.env.PASSWORD,
                 database: process.env.DATABASE,
-                dbport: 3306
+                dialect: "mysql",
+                collate: "utf8_general_ci",
             }
         },
         server: {

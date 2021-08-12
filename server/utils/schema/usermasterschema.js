@@ -6,6 +6,10 @@ module.exports.createusermaster = joi.object().keys({
     mobileno: joi.string().required().trim(),
     address: joi.string().required().lowercase().trim().allow(null),
     emailaddress: joi.string().required().lowercase().trim(),
-    password: joi.string().required().trim(),
-    createdby: joi.string().required().trim()
+    password: joi.string().required().trim()
+})
+
+module.exports.loginschema = joi.object().keys({
+    mobileno: joi.string().required().trim(),
+    password: joi.string().required().trim()
 })
