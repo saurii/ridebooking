@@ -19,5 +19,5 @@ if (cluster.isMaster && 'production' === process.env.NODE_ENV) {
         .listen(_config.server.connections.port, () => {
             console.log(`server listening on port ${_config.server.connections.port}`)
         })
-        .on('error', (e) => logger.error(e));
+        .on('error', (e) => process.exit());
 }

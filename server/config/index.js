@@ -7,7 +7,7 @@ const config = {
                 host: 'localhost',
                 username: 'root',
                 password: 'password',
-                database: 'admin_crudapp',
+                database: 'admin_cab',
                 dbport: 3306
             }
         },

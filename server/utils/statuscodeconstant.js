@@ -16,6 +16,7 @@ class Statuscodes {
         '409': { code: '409', message: 'username/password is incorrect, please try again', ispopup: true },
         '410': { code: '410', message: 'you have no longer access to this api', ispopup: true },
         '411': { code: '411', message: '#key1# delete successfully', ispopup: true },
+        '412': { code: '412', message: 'invalid api parameters', ispopup: true },
         '1015': { code: '1015', message: 'an error occured, please contact to system administrator', ispopup: true }
     }
 
